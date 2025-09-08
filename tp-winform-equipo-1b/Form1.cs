@@ -10,11 +10,31 @@ using System.Windows.Forms;
 
 namespace tp_winform_equipo_1b
 {
-    public partial class Form1 : Form
+    public partial class FrmGestionArticulos : Form
     {
-        public Form1()
+        public FrmGestionArticulos()
         {
             InitializeComponent();
+        }
+
+        private void FrmGestionArticulos_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
