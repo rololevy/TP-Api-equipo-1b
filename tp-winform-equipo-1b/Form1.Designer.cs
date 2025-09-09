@@ -46,6 +46,7 @@
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(504, 319);
             this.dgvArticulos.TabIndex = 0;
+            this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             // 
             // pictureBox1
             // 

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using dominio;
+using servicios;
 
 namespace tp_winform_equipo_1b
 {
@@ -19,7 +21,8 @@ namespace tp_winform_equipo_1b
 
         private void FrmGestionArticulos_Load(object sender, EventArgs e)
         {
-
+            gestionArticulos articulos = new gestionArticulos();
+            dgvArticulos.DataSource = articulos.listar();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -33,6 +36,11 @@ namespace tp_winform_equipo_1b
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

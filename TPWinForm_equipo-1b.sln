@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "tp-winform-equipo-1b", "tp-
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dominio", "dominio\dominio.csproj", "{FF408284-893B-40DB-838E-C4F7A449CD78}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dataManager", "dataManager\dataManager.csproj", "{BF4234E5-197A-4817-BC52-CDF5CA3055C0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "servicios", "servicios\servicios.csproj", "{EB04F2E7-CC11-44EC-91DC-A11D0165149A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{FF408284-893B-40DB-838E-C4F7A449CD78}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FF408284-893B-40DB-838E-C4F7A449CD78}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FF408284-893B-40DB-838E-C4F7A449CD78}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF4234E5-197A-4817-BC52-CDF5CA3055C0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF4234E5-197A-4817-BC52-CDF5CA3055C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF4234E5-197A-4817-BC52-CDF5CA3055C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF4234E5-197A-4817-BC52-CDF5CA3055C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
