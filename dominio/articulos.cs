@@ -16,5 +16,6 @@ namespace dominio
         public marcas marca { get; set; }
         public categorias categoria { get; set; }
 
+        
     }
 }

@@ -42,15 +42,15 @@
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvArticulos.Location = new System.Drawing.Point(15, 56);
+            this.dgvArticulos.Location = new System.Drawing.Point(12, 56);
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(504, 319);
+            this.dgvArticulos.Size = new System.Drawing.Size(741, 319);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(540, 56);
+            this.pictureBox1.Location = new System.Drawing.Point(759, 56);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(248, 319);
             this.pictureBox1.TabIndex = 8;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 424);
+            this.ClientSize = new System.Drawing.Size(1012, 424);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.TxbFiltrar);
