@@ -19,7 +19,20 @@ namespace servicios
             accesoDatos datos = new accesoDatos();
             try
             {
-                datos.setearConsulta("SELECT A.id AS idArticulo, A.codigo, A.nombre, A.descripcion, A.precio, M.id AS idMarca, M.Descripcion AS descMarca, C.id AS idCategoria, C.Descripcion AS descCategoria, I.ImagenUrl FROM ARTICULOS A INNER JOIN MARCAS M ON A.idMarca = M.id INNER JOIN CATEGORIAS C ON A.idCategoria = C.id LEFT JOIN IMAGENES I ON I.IdArticulo = A.id;");
+                //datos.setearConsulta("SELECT A.id AS idArticulo, A.codigo, A.nombre, A.descripcion, A.precio, M.id AS idMarca, M.Descripcion AS descMarca, C.id AS idCategoria, C.Descripcion AS descCategoria, I.ImagenUrl FROM ARTICULOS A INNER JOIN MARCAS M ON A.idMarca = M.id INNER JOIN CATEGORIAS C ON A.idCategoria = C.id LEFT JOIN IMAGENES I ON I.IdArticulo = A.id;");
+                datos.setearConsulta(@"
+                SELECT A.Id AS idArticulo, A.Codigo, A.Nombre, A.Descripcion, A.Precio,
+                        M.Id AS idMarca, M.Descripcion AS descMarca,
+                        C.Id AS idCategoria, C.Descripcion AS descCategoria,
+                        I.ImagenUrl AS imagenUrl
+                FROM ARTICULOS A
+                INNER JOIN MARCAS M ON A.IdMarca = M.Id
+                INNER JOIN CATEGORIAS C ON A.IdCategoria = C.Id
+                LEFT JOIN IMAGENES I 
+                    ON I.IdArticulo = A.Id 
+                    AND I.Id = (SELECT MIN(Id) FROM IMAGENES WHERE IdArticulo = A.Id)
+                ORDER BY A.Nombre;");
+
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
