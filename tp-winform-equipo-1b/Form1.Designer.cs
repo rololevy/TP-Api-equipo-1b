@@ -29,14 +29,14 @@
         private void InitializeComponent()
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pbArticulos = new System.Windows.Forms.PictureBox();
             this.cbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.TxbFiltrar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -47,14 +47,17 @@
             this.dgvArticulos.Size = new System.Drawing.Size(741, 319);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
+            this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
-            // pictureBox1
+            // pbArticulos
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(759, 56);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(248, 319);
-            this.pictureBox1.TabIndex = 8;
-            this.pictureBox1.TabStop = false;
+            this.pbArticulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.pbArticulos.Location = new System.Drawing.Point(759, 56);
+            this.pbArticulos.Name = "pbArticulos";
+            this.pbArticulos.Size = new System.Drawing.Size(248, 319);
+            this.pbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pbArticulos.TabIndex = 8;
+            this.pbArticulos.TabStop = false;
             // 
             // cbFiltrar
             // 
@@ -115,14 +118,14 @@
             this.Controls.Add(this.TxbFiltrar);
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.cbFiltrar);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.pbArticulos);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "FrmGestionArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Articulos";
             this.Load += new System.EventHandler(this.FrmGestionArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -131,7 +134,7 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox pbArticulos;
         private System.Windows.Forms.ComboBox cbFiltrar;
         private System.Windows.Forms.Label lblFiltrar;
         private System.Windows.Forms.TextBox TxbFiltrar;

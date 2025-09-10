@@ -3,6 +3,7 @@ using dominio;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Reflection;
 using System.Text;
@@ -18,7 +19,7 @@ namespace servicios
             accesoDatos datos = new accesoDatos();
             try
             {
-                datos.setearConsulta("SELECT A.id AS idArticulo, A.codigo, A.nombre, A.descripcion, A.precio, M.id AS idMarca, M.Descripcion AS descMarca, C.id AS idCategoria, C.Descripcion AS descCategoria FROM ARTICULOS A INNER JOIN MARCAS M ON A.idMarca = M.id INNER JOIN CATEGORIAS C ON A.idCategoria = C.id");
+                datos.setearConsulta("SELECT A.id AS idArticulo, A.codigo, A.nombre, A.descripcion, A.precio, M.id AS idMarca, M.Descripcion AS descMarca, C.id AS idCategoria, C.Descripcion AS descCategoria, I.ImagenUrl FROM ARTICULOS A INNER JOIN MARCAS M ON A.idMarca = M.id INNER JOIN CATEGORIAS C ON A.idCategoria = C.id LEFT JOIN IMAGENES I ON I.IdArticulo = A.id;");
                 datos.ejecutarLectura();
 
                 while (datos.Lector.Read())
@@ -35,7 +36,15 @@ namespace servicios
                     aux.marca = new marcas();
                     aux.marca.idMarca = (int)(datos.Lector["idMarca"]);
                     aux.marca.descripcion = (string)(datos.Lector["descMarca"]);
-                    lista.Add(aux);
+                    if (datos.Lector["imagenUrl"] is DBNull)
+                    {
+                        aux.imagenUrl = null;
+                    }
+                    else
+                    {
+                        aux.imagenUrl = (string)datos.Lector["imagenUrl"];
+                    }
+                        lista.Add(aux);
 
                 }
                 return lista;
