@@ -43,6 +43,7 @@ namespace servicios
                     else
                     {
                         aux.imagenUrl = (string)datos.Lector["imagenUrl"];
+                       
                     }
                         lista.Add(aux);
 

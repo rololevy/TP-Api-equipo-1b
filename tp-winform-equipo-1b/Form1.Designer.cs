@@ -29,35 +29,34 @@
         private void InitializeComponent()
         {
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
-            this.pbArticulos = new System.Windows.Forms.PictureBox();
+            this.VerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.TxbFiltrar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).BeginInit();
             this.SuspendLayout();
             // 
             // dgvArticulos
             // 
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.VerDetalle});
             this.dgvArticulos.Location = new System.Drawing.Point(12, 56);
+            this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
-            this.dgvArticulos.Size = new System.Drawing.Size(741, 319);
+            this.dgvArticulos.Size = new System.Drawing.Size(866, 319);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
-            // pbArticulos
+            // VerDetalle
             // 
-            this.pbArticulos.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.pbArticulos.Location = new System.Drawing.Point(759, 56);
-            this.pbArticulos.Name = "pbArticulos";
-            this.pbArticulos.Size = new System.Drawing.Size(248, 319);
-            this.pbArticulos.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pbArticulos.TabIndex = 8;
-            this.pbArticulos.TabStop = false;
+            this.VerDetalle.HeaderText = "";
+            this.VerDetalle.Name = "VerDetalle";
+            this.VerDetalle.Text = "Ver detalle";
+            this.VerDetalle.UseColumnTextForButtonValue = true;
             // 
             // cbFiltrar
             // 
@@ -112,20 +111,18 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1012, 424);
+            this.ClientSize = new System.Drawing.Size(890, 424);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.TxbFiltrar);
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.cbFiltrar);
-            this.Controls.Add(this.pbArticulos);
             this.Controls.Add(this.dgvArticulos);
             this.Name = "FrmGestionArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Articulos";
             this.Load += new System.EventHandler(this.FrmGestionArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbArticulos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -134,12 +131,12 @@
         #endregion
 
         private System.Windows.Forms.DataGridView dgvArticulos;
-        private System.Windows.Forms.PictureBox pbArticulos;
         private System.Windows.Forms.ComboBox cbFiltrar;
         private System.Windows.Forms.Label lblFiltrar;
         private System.Windows.Forms.TextBox TxbFiltrar;
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
+        private System.Windows.Forms.DataGridViewButtonColumn VerDetalle;
     }
 }
 

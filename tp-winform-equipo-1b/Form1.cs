@@ -26,7 +26,9 @@ namespace tp_winform_equipo_1b
             gestionArticulos articulos = new gestionArticulos();
             listaArticulos = articulos.listar();
             dgvArticulos.DataSource = listaArticulos;
-            pbArticulos.Load(listaArticulos[0].imagenUrl);
+            dgvArticulos.Columns["imagenUrl"].Visible = false;
+            
+
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -46,25 +48,21 @@ namespace tp_winform_equipo_1b
 
         private void dgvArticulos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex >= 0)
+            {
+                articulos selecionado = (articulos)dgvArticulos.Rows[e.RowIndex].DataBoundItem;
+                frmDetalleArticulo detalle = new frmDetalleArticulo(selecionado);
+                detalle.ShowDialog();
+            }
+            
         }
 
         private void dgvArticulos_SelectionChanged(object sender, EventArgs e)
         {
             articulos selecionado=(articulos)dgvArticulos.CurrentRow.DataBoundItem;
-            cargarImagen(selecionado.imagenUrl);
+           
 
         }
-        private void cargarImagen(string imagen)
-        {
-            try
-            {
-                pbArticulos.Load(imagen);
-            }
-            catch (Exception)
-            {
-                pbArticulos.Load("https://demofree.sirv.com/nope-not-here.jpg");
-            }
-        }
+        
     }
 }
