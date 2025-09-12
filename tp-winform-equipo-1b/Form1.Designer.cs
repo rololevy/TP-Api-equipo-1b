@@ -97,6 +97,7 @@
             this.btnEliminar.TabIndex = 12;
             this.btnEliminar.Text = "Eliminar articulos";
             this.btnEliminar.UseVisualStyleBackColor = true;
+            this.btnEliminar.Click += new System.EventHandler(this.btnEliminar_Click);
             // 
             // btnAgregar
             // 

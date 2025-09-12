@@ -127,5 +127,28 @@ namespace tp_winform_equipo_1b
 
         private void label1_Click(object sender, EventArgs e) { }
         private void label1_Click_1(object sender, EventArgs e) { }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            gestionArticulos articulos = new gestionArticulos();
+            articulos articulo;
+            articulo = (articulos)dgvArticulos.CurrentRow.DataBoundItem; //Agregue esto para ver el numero de articulo cuando selecciono la fila
+            try
+            {
+                //MessageBox -> me devuelve un DialogResult
+                //En el mensaje muestro el numero de articulo
+                DialogResult respuesta = MessageBox.Show("¿Esta seguro de eliminar el articulo " + articulo.idArticulo + "?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    articulo = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                    articulos.eliminar(articulo.idArticulo);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
+            }
+        }
     }
 }

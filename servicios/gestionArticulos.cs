@@ -72,6 +72,21 @@ namespace servicios
                 datos.cerrarConexion();
             }
         }
+
+        public void eliminar(int id) //recibo el id del objeto que quiero borrar
+        {
+            try
+            {
+                accesoDatos datos = new accesoDatos();
+                datos.setearConsulta("delete from articulos where Id = @id"); //-> consulta para eliminar, @id es una variable
+                datos.setearParametro("@id", id); //le asigno el valor que paso por parametro
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }
 

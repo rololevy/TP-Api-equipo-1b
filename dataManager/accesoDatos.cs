@@ -47,5 +47,27 @@ namespace dataManager
             
             conexion.Close();
         }
+
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery(); //de tipo no consulta
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
+        public void setearParametro(string nombre, object valor)
+        {
+            //AddWithValue recibe dos parámetros un string y un object
+            //objeto porque puede recibir cualquier tipo de valor.
+            comando.Parameters.AddWithValue(nombre, valor);
+        }
     }
 }
