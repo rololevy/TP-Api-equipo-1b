@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.VerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
             this.cbFiltrar = new System.Windows.Forms.ComboBox();
@@ -36,7 +37,12 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModArt = new System.Windows.Forms.Button();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tspVerDetalle = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspEliminarArt = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspModificarArt = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
+            this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // dgvArticulos
@@ -44,12 +50,14 @@
             this.dgvArticulos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VerDetalle});
+            this.dgvArticulos.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvArticulos.Location = new System.Drawing.Point(12, 56);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.Size = new System.Drawing.Size(866, 319);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
+            this.dgvArticulos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvArticulos_CellMouseClick);
             this.dgvArticulos.SelectionChanged += new System.EventHandler(this.dgvArticulos_SelectionChanged);
             // 
             // VerDetalle
@@ -118,6 +126,37 @@
             this.btnModArt.TabIndex = 14;
             this.btnModArt.Text = "Modificar Articulos";
             this.btnModArt.UseVisualStyleBackColor = true;
+          
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspVerDetalle,
+            this.tspEliminarArt,
+            this.tspModificarArt});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 70);
+            // 
+            // tspVerDetalle
+            // 
+            this.tspVerDetalle.Name = "tspVerDetalle";
+            this.tspVerDetalle.Size = new System.Drawing.Size(170, 22);
+            this.tspVerDetalle.Text = "Ver Detalle";
+            this.tspVerDetalle.Click += new System.EventHandler(this.verArticuloToolStripMenuItem_Click);
+            // 
+            // tspEliminarArt
+            // 
+            this.tspEliminarArt.Name = "tspEliminarArt";
+            this.tspEliminarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspEliminarArt.Text = "Eliminar Articulo";
+            this.tspEliminarArt.Click += new System.EventHandler(this.tspEliminarArt_Click);
+            // 
+            // tspModificarArt
+            // 
+            this.tspModificarArt.Name = "tspModificarArt";
+            this.tspModificarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspModificarArt.Text = "Modificar Articulo";
+            this.tspModificarArt.Click += new System.EventHandler(this.tspModificarArt_Click);
             // 
             // FrmGestionArticulos
             // 
@@ -136,6 +175,7 @@
             this.Text = "Gestion Articulos";
             this.Load += new System.EventHandler(this.FrmGestionArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).EndInit();
+            this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -151,6 +191,10 @@
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridViewButtonColumn VerDetalle;
         private System.Windows.Forms.Button btnModArt;
+        private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem tspVerDetalle;
+        private System.Windows.Forms.ToolStripMenuItem tspEliminarArt;
+        private System.Windows.Forms.ToolStripMenuItem tspModificarArt;
     }
 }
 

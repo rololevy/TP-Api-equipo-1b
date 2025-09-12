@@ -166,6 +166,46 @@ namespace tp_winform_equipo_1b
             dgvArticulos.DataSource = null;//limpiamos el dgv
             dgvArticulos.DataSource = listaArticulos;
         }
+
+        private void verArticuloToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            verDetalleToolStripMenu(sender, e);
+        }
+
+        private void dgvArticulos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            if(e.Button==MouseButtons.Right && e.RowIndex >= 0)
+            {
+                //selecionamos la fila en la que hicimos click derecho
+                dgvArticulos.ClearSelection();
+                dgvArticulos.Rows[e.RowIndex].Selected = true;
+                dgvArticulos.CurrentCell = dgvArticulos.Rows[e.RowIndex].Cells[e.ColumnIndex];
+                //mostrar el menu en la posicion del cursor
+                dgvArticulos.ContextMenuStrip.Show(Cursor.Position);
+
+            }
+        }
+        private void verDetalleToolStripMenu(object sender, EventArgs e)
+        {
+            if(dgvArticulos.CurrentRow != null)
+            {
+                articulos selecionado = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                frmDetalleArticulo detalle = new frmDetalleArticulo(selecionado);
+                detalle.ShowDialog();
+            }
+        }
+
+        private void tspEliminarArt_Click(object sender, EventArgs e)
+        {
+            btnEliminar_Click(sender, e);
+        }
+
+        private void tspModificarArt_Click(object sender, EventArgs e)
+        {
+         
+        }
+
+        
     }
 }
     
