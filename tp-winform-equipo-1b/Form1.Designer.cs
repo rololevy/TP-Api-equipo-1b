@@ -35,6 +35,7 @@
             this.TxbFiltrar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
+            this.btnModArt = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -106,12 +107,23 @@
             this.btnAgregar.TabIndex = 13;
             this.btnAgregar.Text = "Agregar Articulos";
             this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
+            // btnModArt
+            // 
+            this.btnModArt.Location = new System.Drawing.Point(250, 389);
+            this.btnModArt.Name = "btnModArt";
+            this.btnModArt.Size = new System.Drawing.Size(101, 23);
+            this.btnModArt.TabIndex = 14;
+            this.btnModArt.Text = "Modificar Articulos";
+            this.btnModArt.UseVisualStyleBackColor = true;
             // 
             // FrmGestionArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 424);
+            this.Controls.Add(this.btnModArt);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.TxbFiltrar);
@@ -137,6 +149,7 @@
         private System.Windows.Forms.Button btnEliminar;
         private System.Windows.Forms.Button btnAgregar;
         private System.Windows.Forms.DataGridViewButtonColumn VerDetalle;
+        private System.Windows.Forms.Button btnModArt;
     }
 }
 

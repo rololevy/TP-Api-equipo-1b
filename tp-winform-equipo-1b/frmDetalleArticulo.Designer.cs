@@ -147,6 +147,7 @@
             this.txtDescripcion.Size = new System.Drawing.Size(100, 20);
             this.txtDescripcion.TabIndex = 10;
             this.txtDescripcion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.txtDescripcion.TextChanged += new System.EventHandler(this.txtDescripcion_TextChanged);
             // 
             // txtPrecio
             // 

@@ -56,14 +56,52 @@ namespace servicios
                     else
                     {
                         aux.imagenUrl = (string)datos.Lector["imagenUrl"];
-                       
+
                     }
-                        lista.Add(aux);
+                    lista.Add(aux);
 
                 }
                 return lista;
             }
             catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+        }
+
+        public void agregarArticulo(articulos art)
+        {
+            accesoDatos datos = new accesoDatos();
+            try
+            {
+                
+                datos.setearConsulta(@"insert into articulos (Codigo, Nombre, Descripcion, Precio, IdMarca, IdCategoria) 
+            VALUES (@codigo, @nombre, @descripcion, @precio, @idMarca, @idCategoria);
+            SELECT SCOPE_IDENTITY();");
+
+                datos.setearParametro("@codigo", art.codigo);
+                datos.setearParametro("@nombre", art.nombre);
+                datos.setearParametro("@descripcion", art.descripcion);
+                datos.setearParametro("@precio", art.precio);
+                datos.setearParametro("@idMarca", art.marca.idMarca);
+                datos.setearParametro("@idCategoria", art.categoria.idCategoria);
+
+                int idArt = Convert.ToInt32(datos.ejecutarScalar());//devuelve el nuevo id
+
+                //si el usuario carga una imagen la agregamos a la tabla
+                if (!string.IsNullOrEmpty(art.imagenUrl))
+                {
+                    datos.setearConsulta("insert into imagenes(IdArticulo,ImagenUrl) values (@idArticulo,@imagenUrl)");
+                    datos.setearParametro("@idArticulo", idArt);
+                    datos.setearParametro("@imagenUrl", art.imagenUrl);
+                    datos.ejecutarAccion();
+                }
+            }
+            catch(Exception ex)
             {
                 throw ex;
             }

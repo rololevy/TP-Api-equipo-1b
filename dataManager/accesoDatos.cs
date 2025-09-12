@@ -24,8 +24,14 @@ namespace dataManager
         }
         public void setearConsulta(string consulta)
         {
+            comando.Parameters.Clear();//limpia parametros de consultas anteriores
             comando.CommandType = System.Data.CommandType.Text;
             comando.CommandText = consulta;
+        }
+        
+        public void setearParametro(string nombre, object valor)
+        {
+            comando.Parameters.AddWithValue(nombre, valor ?? DBNull.Value);
         }
         public void ejecutarLectura() {
             comando.Connection = conexion;
@@ -39,6 +45,42 @@ namespace dataManager
                 throw ex;
             }
             
+        }
+        //ejecuta insert update o delete
+        public void ejecutarAccion()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                comando.ExecuteNonQuery();
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
+        }
+        //ejecuta consulta que devuelve un unico valor
+        public object ejecutarScalar()
+        {
+            comando.Connection = conexion;
+            try
+            {
+                conexion.Open();
+                return comando.ExecuteScalar();//devuelve el primer valor de la primera fila
+            }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                conexion.Close();
+            }
         }
         public void cerrarConexion()
         {

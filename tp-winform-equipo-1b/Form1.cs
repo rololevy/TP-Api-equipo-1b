@@ -124,8 +124,22 @@ namespace tp_winform_equipo_1b
             // Por ahora no hacemos nada.
         }
 
+        private void cargarArticulos()
+        {
+            gestionArticulos gestorart = new gestionArticulos();
+            listaArticulos = gestorart.listar();
 
-        private void label1_Click(object sender, EventArgs e) { }
-        private void label1_Click_1(object sender, EventArgs e) { }
+            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = listaArticulos;
+        }
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            frmAgregarModificar ventana = new frmAgregarModificar();
+            ventana.ShowDialog();
+            cargarArticulos();
+            
+        }
     }
-}
+        
+    }
+

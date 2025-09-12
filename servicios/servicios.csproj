@@ -42,6 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="gestionArticulos.cs" />
+    <Compile Include="gestionCategoria.cs" />
+    <Compile Include="gestionMarcas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

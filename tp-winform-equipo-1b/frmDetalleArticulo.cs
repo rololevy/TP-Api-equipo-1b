@@ -46,5 +46,10 @@ namespace tp_winform_equipo_1b
             txtCategoria.Text = art.categoria.descripcion;
             imagenManager.cargarImagen(pbArtDetalle, art.imagenUrl);
         }
+
+        private void txtDescripcion_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
