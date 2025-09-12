@@ -8,7 +8,7 @@ namespace tp_winform_equipo_1b
 {
     public partial class FrmGestionArticulos : Form
     {
-        // Lista privada para manejar artículos en memoria (tu campo original)
+        // Lista privada para manejar artículos en memoria
         private List<articulos> listaArticulos = new List<articulos>();
 
         public FrmGestionArticulos()
@@ -35,7 +35,7 @@ namespace tp_winform_equipo_1b
             if (cbFiltrar.SelectedIndex < 0)
                 cbFiltrar.SelectedIndex = 0;
 
-            // (Opcional) Sólo números cuando filtra por ID
+            // Sólo números cuando filtra por ID
             this.TxbFiltrar.KeyPress += TxbFiltrar_KeyPress;
         }
 
