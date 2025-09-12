@@ -31,16 +31,17 @@
             this.components = new System.ComponentModel.Container();
             this.dgvArticulos = new System.Windows.Forms.DataGridView();
             this.VerDetalle = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.tspVerDetalle = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspEliminarArt = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspModificarArt = new System.Windows.Forms.ToolStripMenuItem();
+            this.tspAgregarImagen = new System.Windows.Forms.ToolStripMenuItem();
             this.cbFiltrar = new System.Windows.Forms.ComboBox();
             this.lblFiltrar = new System.Windows.Forms.Label();
             this.TxbFiltrar = new System.Windows.Forms.TextBox();
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModArt = new System.Windows.Forms.Button();
-            this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
-            this.tspVerDetalle = new System.Windows.Forms.ToolStripMenuItem();
-            this.tspEliminarArt = new System.Windows.Forms.ToolStripMenuItem();
-            this.tspModificarArt = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -66,6 +67,44 @@
             this.VerDetalle.Name = "VerDetalle";
             this.VerDetalle.Text = "Ver detalle";
             this.VerDetalle.UseColumnTextForButtonValue = true;
+            // 
+            // contextMenuStrip1
+            // 
+            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tspVerDetalle,
+            this.tspEliminarArt,
+            this.tspModificarArt,
+            this.tspAgregarImagen});
+            this.contextMenuStrip1.Name = "contextMenuStrip1";
+            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            // 
+            // tspVerDetalle
+            // 
+            this.tspVerDetalle.Name = "tspVerDetalle";
+            this.tspVerDetalle.Size = new System.Drawing.Size(180, 22);
+            this.tspVerDetalle.Text = "Ver Detalle";
+            this.tspVerDetalle.Click += new System.EventHandler(this.verArticuloToolStripMenuItem_Click);
+            // 
+            // tspEliminarArt
+            // 
+            this.tspEliminarArt.Name = "tspEliminarArt";
+            this.tspEliminarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspEliminarArt.Text = "Eliminar Articulo";
+            this.tspEliminarArt.Click += new System.EventHandler(this.tspEliminarArt_Click);
+            // 
+            // tspModificarArt
+            // 
+            this.tspModificarArt.Name = "tspModificarArt";
+            this.tspModificarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspModificarArt.Text = "Modificar Articulo";
+            this.tspModificarArt.Click += new System.EventHandler(this.tspModificarArt_Click);
+            // 
+            // tspAgregarImagen
+            // 
+            this.tspAgregarImagen.Name = "tspAgregarImagen";
+            this.tspAgregarImagen.Size = new System.Drawing.Size(180, 22);
+            this.tspAgregarImagen.Text = "Agregar Imagen";
+            this.tspAgregarImagen.Click += new System.EventHandler(this.tspAgregarImagen_Click);
             // 
             // cbFiltrar
             // 
@@ -126,37 +165,6 @@
             this.btnModArt.TabIndex = 14;
             this.btnModArt.Text = "Modificar Articulos";
             this.btnModArt.UseVisualStyleBackColor = true;
-          
-            // 
-            // contextMenuStrip1
-            // 
-            this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tspVerDetalle,
-            this.tspEliminarArt,
-            this.tspModificarArt});
-            this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 70);
-            // 
-            // tspVerDetalle
-            // 
-            this.tspVerDetalle.Name = "tspVerDetalle";
-            this.tspVerDetalle.Size = new System.Drawing.Size(170, 22);
-            this.tspVerDetalle.Text = "Ver Detalle";
-            this.tspVerDetalle.Click += new System.EventHandler(this.verArticuloToolStripMenuItem_Click);
-            // 
-            // tspEliminarArt
-            // 
-            this.tspEliminarArt.Name = "tspEliminarArt";
-            this.tspEliminarArt.Size = new System.Drawing.Size(180, 22);
-            this.tspEliminarArt.Text = "Eliminar Articulo";
-            this.tspEliminarArt.Click += new System.EventHandler(this.tspEliminarArt_Click);
-            // 
-            // tspModificarArt
-            // 
-            this.tspModificarArt.Name = "tspModificarArt";
-            this.tspModificarArt.Size = new System.Drawing.Size(180, 22);
-            this.tspModificarArt.Text = "Modificar Articulo";
-            this.tspModificarArt.Click += new System.EventHandler(this.tspModificarArt_Click);
             // 
             // FrmGestionArticulos
             // 
@@ -195,6 +203,7 @@
         private System.Windows.Forms.ToolStripMenuItem tspVerDetalle;
         private System.Windows.Forms.ToolStripMenuItem tspEliminarArt;
         private System.Windows.Forms.ToolStripMenuItem tspModificarArt;
+        private System.Windows.Forms.ToolStripMenuItem tspAgregarImagen;
     }
 }
 

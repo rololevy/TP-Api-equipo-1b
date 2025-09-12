@@ -205,7 +205,10 @@ namespace tp_winform_equipo_1b
          
         }
 
-        
+        private void tspAgregarImagen_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
     
