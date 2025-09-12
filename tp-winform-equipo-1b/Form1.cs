@@ -8,7 +8,7 @@ namespace tp_winform_equipo_1b
 {
     public partial class FrmGestionArticulos : Form
     {
-        // Lista privada para manejar artículos en memoria (tu campo original)
+        // Lista privada para manejar artículos en memoria
         private List<articulos> listaArticulos = new List<articulos>();
 
         public FrmGestionArticulos()
@@ -35,7 +35,7 @@ namespace tp_winform_equipo_1b
             if (cbFiltrar.SelectedIndex < 0)
                 cbFiltrar.SelectedIndex = 0;
 
-            // (Opcional) Sólo números cuando filtra por ID
+            // Sólo números cuando filtra por ID
             this.TxbFiltrar.KeyPress += TxbFiltrar_KeyPress;
         }
 
@@ -124,22 +124,51 @@ namespace tp_winform_equipo_1b
             // Por ahora no hacemos nada.
         }
 
+
         private void cargarArticulos()
         {
-            gestionArticulos gestorart = new gestionArticulos();
-            listaArticulos = gestorart.listar();
+            gestionArticulos gestorArt = new gestionArticulos();
+            listaArticulos = gestorArt.listar();
 
-            dgvArticulos.DataSource = null;
+            dgvArticulos.DataSource = null;//limpiamos el dgv
             dgvArticulos.DataSource = listaArticulos;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
-            frmAgregarModificar ventana = new frmAgregarModificar();
-            ventana.ShowDialog();
+            frmAgregarModificar ventana = new frmAgregarModificar(); 
+            ventana.ShowDialog(); 
             cargarArticulos();
-            
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            gestionArticulos articulos = new gestionArticulos();
+            articulos articulo;
+            articulo = (articulos)dgvArticulos.CurrentRow.DataBoundItem; //Agregue esto para ver el numero de articulo cuando selecciono la fila
+            try
+            {
+                //MessageBox -> me devuelve un DialogResult
+                //En el mensaje muestro el numero de articulo
+                DialogResult respuesta = MessageBox.Show("¿Esta seguro de eliminar el articulo " + articulo.idArticulo + "?", "Eliminando", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                if (respuesta == DialogResult.Yes)
+                {
+                    articulo = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+                    articulos.eliminar(articulo.idArticulo);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+                throw;
+            }
+            listaArticulos = articulos.listar();
+
+            dgvArticulos.DataSource = null;//limpiamos el dgv
+            dgvArticulos.DataSource = listaArticulos;
         }
     }
+}
+    
         
-    }
+    
 
