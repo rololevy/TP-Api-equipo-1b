@@ -52,9 +52,11 @@
             this.dgvArticulos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.VerDetalle});
             this.dgvArticulos.ContextMenuStrip = this.contextMenuStrip1;
+            this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgvArticulos.Location = new System.Drawing.Point(12, 56);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
+            this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvArticulos.Size = new System.Drawing.Size(866, 319);
             this.dgvArticulos.TabIndex = 0;
             this.dgvArticulos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvArticulos_CellContentClick);
@@ -76,33 +78,33 @@
             this.tspModificarArt,
             this.tspAgregarImagen});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 92);
             // 
             // tspVerDetalle
             // 
             this.tspVerDetalle.Name = "tspVerDetalle";
-            this.tspVerDetalle.Size = new System.Drawing.Size(180, 22);
+            this.tspVerDetalle.Size = new System.Drawing.Size(170, 22);
             this.tspVerDetalle.Text = "Ver Detalle";
             this.tspVerDetalle.Click += new System.EventHandler(this.verArticuloToolStripMenuItem_Click);
             // 
             // tspEliminarArt
             // 
             this.tspEliminarArt.Name = "tspEliminarArt";
-            this.tspEliminarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspEliminarArt.Size = new System.Drawing.Size(170, 22);
             this.tspEliminarArt.Text = "Eliminar Articulo";
             this.tspEliminarArt.Click += new System.EventHandler(this.tspEliminarArt_Click);
             // 
             // tspModificarArt
             // 
             this.tspModificarArt.Name = "tspModificarArt";
-            this.tspModificarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspModificarArt.Size = new System.Drawing.Size(170, 22);
             this.tspModificarArt.Text = "Modificar Articulo";
             this.tspModificarArt.Click += new System.EventHandler(this.tspModificarArt_Click);
             // 
             // tspAgregarImagen
             // 
             this.tspAgregarImagen.Name = "tspAgregarImagen";
-            this.tspAgregarImagen.Size = new System.Drawing.Size(180, 22);
+            this.tspAgregarImagen.Size = new System.Drawing.Size(170, 22);
             this.tspAgregarImagen.Text = "Agregar Imagen";
             this.tspAgregarImagen.Click += new System.EventHandler(this.tspAgregarImagen_Click);
             // 

@@ -42,13 +42,13 @@ namespace tp_winform_equipo_1b
                 art.categoria = (categorias)cbCategoria.SelectedItem; 
                 art.imagenUrl = txbUrlImagen.Text;
                 gestor.agregarArticulo(art);
-                MessageBox.Show("se ha cargado el articulo correctamente");
+                MessageBox.Show("Se ha cargado el artículo correctamente");
                 Close();
 
             }
             catch(Exception)
             {
-                MessageBox.Show("algunos de los datos ingresados no es correcto");
+                MessageBox.Show("Algunos de los datos ingresados no es correcto");
             }
         }
 
@@ -70,6 +70,16 @@ namespace tp_winform_equipo_1b
             {
                 MessageBox.Show(ex.ToString());
             }
+
+        }
+
+        private void lblCodigo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDescripcion_Click(object sender, EventArgs e)
+        {
 
         }
     }
