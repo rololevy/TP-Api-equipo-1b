@@ -51,9 +51,9 @@
             this.lblIdArticulo.AutoSize = true;
             this.lblIdArticulo.Location = new System.Drawing.Point(20, 12);
             this.lblIdArticulo.Name = "lblIdArticulo";
-            this.lblIdArticulo.Size = new System.Drawing.Size(62, 13);
+            this.lblIdArticulo.Size = new System.Drawing.Size(64, 13);
             this.lblIdArticulo.TabIndex = 0;
-            this.lblIdArticulo.Text = "ID Articulo :";
+            this.lblIdArticulo.Text = "ID Artículo :";
             this.lblIdArticulo.Click += new System.EventHandler(this.label1_Click);
             // 
             // lblCodigo
@@ -63,7 +63,7 @@
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(46, 13);
             this.lblCodigo.TabIndex = 1;
-            this.lblCodigo.Text = "Codigo :";
+            this.lblCodigo.Text = "Código :";
             this.lblCodigo.Click += new System.EventHandler(this.lblCodigo_Click);
             // 
             // lblNombre
@@ -82,7 +82,7 @@
             this.lblDescripcion.Name = "lblDescripcion";
             this.lblDescripcion.Size = new System.Drawing.Size(66, 13);
             this.lblDescripcion.TabIndex = 3;
-            this.lblDescripcion.Text = "Descripcion:";
+            this.lblDescripcion.Text = "Descripción:";
             // 
             // lblPrecio
             // 
@@ -107,9 +107,9 @@
             this.lblCategoria.AutoSize = true;
             this.lblCategoria.Location = new System.Drawing.Point(27, 157);
             this.lblCategoria.Name = "lblCategoria";
-            this.lblCategoria.Size = new System.Drawing.Size(55, 13);
+            this.lblCategoria.Size = new System.Drawing.Size(57, 13);
             this.lblCategoria.TabIndex = 6;
-            this.lblCategoria.Text = "Categoria:";
+            this.lblCategoria.Text = "Categoría:";
             // 
             // txtIdArt
             // 

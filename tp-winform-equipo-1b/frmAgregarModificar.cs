@@ -45,6 +45,7 @@ namespace tp_winform_equipo_1b
             gestionArticulos gestor = new gestionArticulos();
             try
             {
+<<<<<<< HEAD
                 if (articulo == null) //Si es null estoy agregando/creando
                 {
                     articulo = new articulos(); //genero la instancia
@@ -56,6 +57,18 @@ namespace tp_winform_equipo_1b
                     articulo.marca = (marcas)cbMarca.SelectedItem;
                     articulo.categoria = (categorias)cbCategoria.SelectedItem;
                     articulo.imagenUrl = txbUrlImagen.Text;
+=======
+                art.codigo = txbCodigo.Text;
+                art.nombre = txbNombre.Text;
+                art.descripcion = txbDesc.Text;
+                art.precio = decimal.Parse(txbPrecio.Text);
+                art.marca = (marcas)cbMarca.SelectedItem;
+                art.categoria = (categorias)cbCategoria.SelectedItem; 
+                art.imagenUrl = txbUrlImagen.Text;
+                gestor.agregarArticulo(art);
+                MessageBox.Show("Se ha cargado el artículo correctamente");
+                Close();
+>>>>>>> 3842e94dbda8ef1a0d7f9b1996b68be357144a21
 
                 if (articulo.idArticulo != 0) //Estoy modificando
                 {
@@ -71,7 +84,7 @@ namespace tp_winform_equipo_1b
             }
             catch(Exception)
             {
-                MessageBox.Show("algunos de los datos ingresados no es correcto");
+                MessageBox.Show("Algunos de los datos ingresados no es correcto");
             }
         }
 
@@ -87,13 +100,13 @@ namespace tp_winform_equipo_1b
             try
             {
                 cbMarca.DataSource = gestorMarca.listar();
-                cbMarca.ValueMember = "idMarca"; //prop de la clase
-                cbMarca.DisplayMember = "descripcion"; //prop de la clase
+                cbMarca.ValueMember = "idMarca"; //prop de la clase marca
+                cbMarca.DisplayMember = "descripcion"; //prop de la clase marca
                 cbCategoria.DataSource = gestorCat.listar();
-                cbCategoria.ValueMember = "idCategoria"; //prop de la clase
-                cbCategoria.DisplayMember = "descripcion"; //prop de la clase
+                cbCategoria.ValueMember = "idCategoria"; //prop de la clase categoria
+                cbCategoria.DisplayMember = "descripcion"; //prop de la clase categoria
 
-                if(articulo != null) //el objeto existe, solo modifico
+                if (articulo != null) //el objeto existe, solo modifico
                 {
                     txbCodigo.Text = articulo.codigo.ToString();
                     txbNombre.Text = articulo.nombre;
@@ -108,6 +121,16 @@ namespace tp_winform_equipo_1b
             {
                 MessageBox.Show(ex.ToString());
             }
+
+        }
+
+        private void lblCodigo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lblDescripcion_Click(object sender, EventArgs e)
+        {
 
         }
     }
