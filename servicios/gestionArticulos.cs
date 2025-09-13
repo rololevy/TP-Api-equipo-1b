@@ -43,12 +43,12 @@ namespace servicios
                     aux.nombre = (string)(datos.Lector["nombre"]);
                     aux.descripcion = (string)(datos.Lector["descripcion"]);
                     aux.precio = (decimal)(datos.Lector["precio"]);
-                    aux.categoria = new categorias();
-                    aux.categoria.idCategoria = (int)(datos.Lector["idCategoria"]);
-                    aux.categoria.descripcion = (string)(datos.Lector["descCategoria"]);
                     aux.marca = new marcas();
                     aux.marca.idMarca = (int)(datos.Lector["idMarca"]);
                     aux.marca.descripcion = (string)(datos.Lector["descMarca"]);
+                    aux.categoria = new categorias();
+                    aux.categoria.idCategoria = (int)(datos.Lector["idCategoria"]);
+                    aux.categoria.descripcion = (string)(datos.Lector["descCategoria"]);
                     if (datos.Lector["imagenUrl"] is DBNull)
                     {
                         aux.imagenUrl = null;
@@ -110,6 +110,40 @@ namespace servicios
             {
                 datos.cerrarConexion();
             } 
+        }
+
+        public void modificar(articulos art) //recibo el objeto que quiero modificar
+        {
+            accesoDatos datos = new accesoDatos();
+            try
+            {
+                datos.setearConsulta("UPDATE ARTICULOS " +
+            "SET Codigo = @codigo, " +
+            "Nombre = @nombre, " +
+            "Descripcion = @desc, " +
+            "IdMarca = @idMarca, " +
+            "IdCategoria = @idCategoria, " +
+            "Precio = @precio " +
+            "WHERE Id = @id"); //update
+
+                datos.setearParametro("Codigo", art.codigo);
+                datos.setearParametro("Nombre", art.nombre);
+                datos.setearParametro("Descripcion", art.descripcion);
+                datos.setearParametro("IdMarca", art.marca.idMarca);
+                datos.setearParametro("IdCategoria", art.categoria.idCategoria);
+                datos.setearParametro("Precio", art.precio);
+                datos.setearParametro("id", art.idArticulo);
+
+                datos.ejecutarAccion();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
         }
 
         public void eliminar(int id) //recibo el id del objeto que quiero borrar

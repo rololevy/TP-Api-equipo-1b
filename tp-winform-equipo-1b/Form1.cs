@@ -209,6 +209,15 @@ namespace tp_winform_equipo_1b
         {
 
         }
+
+        private void btnModArt_Click(object sender, EventArgs e)
+        {
+            //Mando el objeto que quiero modificar
+            articulos seleccionado = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAgregarModificar vModificar = new frmAgregarModificar(seleccionado);
+            vModificar.ShowDialog();
+            cargarArticulos();
+        }
     }
 }
     

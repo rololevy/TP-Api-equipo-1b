@@ -76,33 +76,33 @@
             this.tspModificarArt,
             this.tspAgregarImagen});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(181, 114);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(171, 92);
             // 
             // tspVerDetalle
             // 
             this.tspVerDetalle.Name = "tspVerDetalle";
-            this.tspVerDetalle.Size = new System.Drawing.Size(180, 22);
+            this.tspVerDetalle.Size = new System.Drawing.Size(170, 22);
             this.tspVerDetalle.Text = "Ver Detalle";
             this.tspVerDetalle.Click += new System.EventHandler(this.verArticuloToolStripMenuItem_Click);
             // 
             // tspEliminarArt
             // 
             this.tspEliminarArt.Name = "tspEliminarArt";
-            this.tspEliminarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspEliminarArt.Size = new System.Drawing.Size(170, 22);
             this.tspEliminarArt.Text = "Eliminar Articulo";
             this.tspEliminarArt.Click += new System.EventHandler(this.tspEliminarArt_Click);
             // 
             // tspModificarArt
             // 
             this.tspModificarArt.Name = "tspModificarArt";
-            this.tspModificarArt.Size = new System.Drawing.Size(180, 22);
+            this.tspModificarArt.Size = new System.Drawing.Size(170, 22);
             this.tspModificarArt.Text = "Modificar Articulo";
             this.tspModificarArt.Click += new System.EventHandler(this.tspModificarArt_Click);
             // 
             // tspAgregarImagen
             // 
             this.tspAgregarImagen.Name = "tspAgregarImagen";
-            this.tspAgregarImagen.Size = new System.Drawing.Size(180, 22);
+            this.tspAgregarImagen.Size = new System.Drawing.Size(170, 22);
             this.tspAgregarImagen.Text = "Agregar Imagen";
             this.tspAgregarImagen.Click += new System.EventHandler(this.tspAgregarImagen_Click);
             // 
@@ -165,6 +165,7 @@
             this.btnModArt.TabIndex = 14;
             this.btnModArt.Text = "Modificar Articulos";
             this.btnModArt.UseVisualStyleBackColor = true;
+            this.btnModArt.Click += new System.EventHandler(this.btnModArt_Click);
             // 
             // FrmGestionArticulos
             // 

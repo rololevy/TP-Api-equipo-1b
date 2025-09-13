@@ -13,9 +13,20 @@ namespace tp_winform_equipo_1b
 {
     public partial class frmAgregarModificar : Form
     {
+
+        //creo un atributo privado para poder manipular despues
+        //este cae al constructor sin parametros
+        private articulos articulo = null;
         public frmAgregarModificar()
         {
             InitializeComponent();
+        }
+
+        public frmAgregarModificar(articulos art)
+        {
+            InitializeComponent();
+            articulo = art;
+            Text = "Modificar Articulo"; //Titulo de la ventana
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -30,21 +41,33 @@ namespace tp_winform_equipo_1b
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            articulos art = new articulos();
+            //articulos art = new articulos();
             gestionArticulos gestor = new gestionArticulos();
             try
             {
-                art.codigo = txbCodigo.Text;
-                art.nombre = txbNombre.Text;
-                art.descripcion = txbDesc.Text;
-                art.precio = decimal.Parse(txbPrecio.Text);
-                art.marca = (marcas)cbMarca.SelectedItem;
-                art.categoria = (categorias)cbCategoria.SelectedItem; 
-                art.imagenUrl = txbUrlImagen.Text;
-                gestor.agregarArticulo(art);
-                MessageBox.Show("se ha cargado el articulo correctamente");
-                Close();
+                if (articulo == null) //Si es null estoy agregando/creando
+                {
+                    articulo = new articulos(); //genero la instancia
+                }
+                    articulo.codigo = txbCodigo.Text;
+                    articulo.nombre = txbNombre.Text;
+                    articulo.descripcion = txbDesc.Text;
+                    articulo.precio = decimal.Parse(txbPrecio.Text);
+                    articulo.marca = (marcas)cbMarca.SelectedItem;
+                    articulo.categoria = (categorias)cbCategoria.SelectedItem;
+                    articulo.imagenUrl = txbUrlImagen.Text;
 
+                if (articulo.idArticulo != 0) //Estoy modificando
+                {
+                    gestor.modificar(articulo);
+                    MessageBox.Show("Se ha modificado el articulo correctamente");
+                }else //Estoy agregando
+                {
+                    gestor.agregarArticulo(articulo);
+                    MessageBox.Show("se ha cargado el articulo correctamente");
+                }
+
+                Close();
             }
             catch(Exception)
             {
@@ -63,8 +86,23 @@ namespace tp_winform_equipo_1b
             gestionMarcas gestorMarca = new gestionMarcas();
             try
             {
-                cbCategoria.DataSource = gestorCat.listar();
                 cbMarca.DataSource = gestorMarca.listar();
+                cbMarca.ValueMember = "idMarca"; //prop de la clase
+                cbMarca.DisplayMember = "descripcion"; //prop de la clase
+                cbCategoria.DataSource = gestorCat.listar();
+                cbCategoria.ValueMember = "idCategoria"; //prop de la clase
+                cbCategoria.DisplayMember = "descripcion"; //prop de la clase
+
+                if(articulo != null) //el objeto existe, solo modifico
+                {
+                    txbCodigo.Text = articulo.codigo.ToString();
+                    txbNombre.Text = articulo.nombre;
+                    txbDesc.Text = articulo.descripcion;
+                    txbPrecio.Text = articulo.precio.ToString();
+                    txbUrlImagen.Text = articulo.imagenUrl;
+                    cbMarca.SelectedValue = articulo.marca.idMarca;
+                    cbCategoria.SelectedValue = articulo.categoria.idCategoria;
+                }
             }
             catch(Exception ex)
             {
