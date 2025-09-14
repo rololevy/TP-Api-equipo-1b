@@ -206,12 +206,27 @@ namespace tp_winform_equipo_1b
 
         private void tspModificarArt_Click(object sender, EventArgs e)
         {
-         
+            gestionArticulos gestor = new gestionArticulos();
+            articulos art = new articulos();
+            art = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            frmAgregarModificar vmodificar = new frmAgregarModificar(art);
+            vmodificar.ShowDialog();
+            cargarArticulos();
         }
 
         private void tspAgregarImagen_Click(object sender, EventArgs e)
         {
+            if (dgvArticulos?.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccioná un artículo primero.");
+                return;
+            }
 
+            var art = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            using (var f = new FrmGestionarImagenes(art.idArticulo, art.nombre))
+                f.ShowDialog(this);
+            //actualizamos la lista de articulos
+            cargarArticulos();
         }
 
         private void btnModArt_Click(object sender, EventArgs e)
@@ -234,6 +249,8 @@ namespace tp_winform_equipo_1b
             var art = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
             using (var f = new FrmGestionarImagenes(art.idArticulo, art.nombre))
                 f.ShowDialog(this);
+            //actualizamos la lista de articulos
+            cargarArticulos();
         }
 
 

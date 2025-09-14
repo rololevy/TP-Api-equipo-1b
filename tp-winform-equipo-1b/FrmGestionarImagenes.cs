@@ -72,6 +72,7 @@ namespace tp_winform_equipo_1b
             CargarImagenes();
             var pos = _imagenes.FindIndex(i => i.Url == url);
             if (pos >= 0) lstImagenes.SelectedIndex = pos;
+            
         }
 
         private void btnEliminar_Click(object sender, EventArgs e)

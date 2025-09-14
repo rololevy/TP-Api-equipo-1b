@@ -43,6 +43,10 @@
             this.txtMarca = new System.Windows.Forms.TextBox();
             this.txtCategoria = new System.Windows.Forms.TextBox();
             this.pbArtDetalle = new System.Windows.Forms.PictureBox();
+            this.btnAnterior = new System.Windows.Forms.Button();
+            this.btnSiguiente = new System.Windows.Forms.Button();
+            this.lblContador = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbArtDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -180,16 +184,54 @@
             // 
             this.pbArtDetalle.Location = new System.Drawing.Point(209, 5);
             this.pbArtDetalle.Name = "pbArtDetalle";
-            this.pbArtDetalle.Size = new System.Drawing.Size(221, 214);
+            this.pbArtDetalle.Size = new System.Drawing.Size(221, 165);
             this.pbArtDetalle.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pbArtDetalle.TabIndex = 14;
             this.pbArtDetalle.TabStop = false;
+            // 
+            // btnAnterior
+            // 
+            this.btnAnterior.Location = new System.Drawing.Point(246, 176);
+            this.btnAnterior.Name = "btnAnterior";
+            this.btnAnterior.Size = new System.Drawing.Size(75, 23);
+            this.btnAnterior.TabIndex = 15;
+            this.btnAnterior.Text = "Anterior";
+            this.btnAnterior.UseVisualStyleBackColor = true;
+            this.btnAnterior.Click += new System.EventHandler(this.btnAnterior_Click);
+            // 
+            // btnSiguiente
+            // 
+            this.btnSiguiente.Location = new System.Drawing.Point(327, 176);
+            this.btnSiguiente.Name = "btnSiguiente";
+            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.TabIndex = 16;
+            this.btnSiguiente.Text = "Siguiente";
+            this.btnSiguiente.UseVisualStyleBackColor = true;
+            this.btnSiguiente.Click += new System.EventHandler(this.btnSiguiente_Click);
+            // 
+            // lblContador
+            // 
+            this.lblContador.Location = new System.Drawing.Point(0, 0);
+            this.lblContador.Name = "lblContador";
+            this.lblContador.Size = new System.Drawing.Size(100, 23);
+            this.lblContador.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(100, 23);
+            this.label1.TabIndex = 0;
             // 
             // frmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(442, 222);
+            this.ClientSize = new System.Drawing.Size(442, 202);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblContador);
+            this.Controls.Add(this.btnSiguiente);
+            this.Controls.Add(this.btnAnterior);
             this.Controls.Add(this.pbArtDetalle);
             this.Controls.Add(this.txtCategoria);
             this.Controls.Add(this.txtMarca);
@@ -205,6 +247,8 @@
             this.Controls.Add(this.lblNombre);
             this.Controls.Add(this.lblCodigo);
             this.Controls.Add(this.lblIdArticulo);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "frmDetalleArticulo";
             this.Text = "frmDetalleArticulo";
             this.Load += new System.EventHandler(this.frmDetalleArticulo_Load);
@@ -231,5 +275,9 @@
         private System.Windows.Forms.TextBox txtMarca;
         private System.Windows.Forms.TextBox txtCategoria;
         private System.Windows.Forms.PictureBox pbArtDetalle;
+        private System.Windows.Forms.Button btnAnterior;
+        private System.Windows.Forms.Button btnSiguiente;
+        private System.Windows.Forms.Label lblContador;
+        private System.Windows.Forms.Label label1;
     }
 }

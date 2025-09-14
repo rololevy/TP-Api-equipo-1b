@@ -54,7 +54,7 @@
             this.VerDetalle});
             this.dgvArticulos.ContextMenuStrip = this.contextMenuStrip1;
             this.dgvArticulos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgvArticulos.Location = new System.Drawing.Point(12, 56);
+            this.dgvArticulos.Location = new System.Drawing.Point(15, 64);
             this.dgvArticulos.MultiSelect = false;
             this.dgvArticulos.Name = "dgvArticulos";
             this.dgvArticulos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -84,28 +84,28 @@
             // tspVerDetalle
             // 
             this.tspVerDetalle.Name = "tspVerDetalle";
-            this.tspVerDetalle.Size = new System.Drawing.Size(170, 22);
+            this.tspVerDetalle.Size = new System.Drawing.Size(180, 22);
             this.tspVerDetalle.Text = "Ver Detalle";
             this.tspVerDetalle.Click += new System.EventHandler(this.verArticuloToolStripMenuItem_Click);
             // 
             // tspEliminarArt
             // 
             this.tspEliminarArt.Name = "tspEliminarArt";
-            this.tspEliminarArt.Size = new System.Drawing.Size(170, 22);
+            this.tspEliminarArt.Size = new System.Drawing.Size(180, 22);
             this.tspEliminarArt.Text = "Eliminar Articulo";
             this.tspEliminarArt.Click += new System.EventHandler(this.tspEliminarArt_Click);
             // 
             // tspModificarArt
             // 
             this.tspModificarArt.Name = "tspModificarArt";
-            this.tspModificarArt.Size = new System.Drawing.Size(170, 22);
+            this.tspModificarArt.Size = new System.Drawing.Size(180, 22);
             this.tspModificarArt.Text = "Modificar Articulo";
             this.tspModificarArt.Click += new System.EventHandler(this.tspModificarArt_Click);
             // 
             // tspAgregarImagen
             // 
             this.tspAgregarImagen.Name = "tspAgregarImagen";
-            this.tspAgregarImagen.Size = new System.Drawing.Size(170, 22);
+            this.tspAgregarImagen.Size = new System.Drawing.Size(180, 22);
             this.tspAgregarImagen.Text = "Agregar Imagen";
             this.tspAgregarImagen.Click += new System.EventHandler(this.tspAgregarImagen_Click);
             // 
@@ -193,6 +193,8 @@
             this.Controls.Add(this.lblFiltrar);
             this.Controls.Add(this.cbFiltrar);
             this.Controls.Add(this.dgvArticulos);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
             this.Name = "FrmGestionArticulos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestion Articulos";

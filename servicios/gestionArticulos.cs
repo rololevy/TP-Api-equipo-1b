@@ -120,7 +120,7 @@ namespace servicios
                 datos.setearConsulta("UPDATE ARTICULOS " +
             "SET Codigo = @codigo, " +
             "Nombre = @nombre, " +
-            "Descripcion = @desc, " +
+            "Descripcion = @descripcion, " +
             "IdMarca = @idMarca, " +
             "IdCategoria = @idCategoria, " +
             "Precio = @precio " +

@@ -41,7 +41,7 @@ namespace tp_winform_equipo_1b
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            
+
             gestionArticulos gestor = new gestionArticulos();
             try
             {
@@ -49,19 +49,20 @@ namespace tp_winform_equipo_1b
                 {
                     articulo = new articulos(); //genero la instancia
                 }
-                    articulo.codigo = txbCodigo.Text;
-                    articulo.nombre = txbNombre.Text;
-                    articulo.descripcion = txbDesc.Text;
-                    articulo.precio = decimal.Parse(txbPrecio.Text);
-                    articulo.marca = (marcas)cbMarca.SelectedItem;
-                    articulo.categoria = (categorias)cbCategoria.SelectedItem;
-                    articulo.imagenUrl = txbUrlImagen.Text;
+                articulo.codigo = txbCodigo.Text;
+                articulo.nombre = txbNombre.Text;
+                articulo.descripcion = txbDesc.Text;
+                articulo.precio = decimal.Parse(txbPrecio.Text);
+                articulo.marca = (marcas)cbMarca.SelectedItem;
+                articulo.categoria = (categorias)cbCategoria.SelectedItem;
+                articulo.imagenUrl = txbUrlImagen.Text;
 
                 if (articulo.idArticulo != 0) //Estoy modificando
                 {
                     gestor.modificar(articulo);
                     MessageBox.Show("Se ha modificado el articulo correctamente");
-                }else //Estoy agregando/creando
+                }
+                else //Estoy agregando/creando
                 {
                     gestor.agregarArticulo(articulo);
                     MessageBox.Show("Se ha cargado el artículo correctamente");
@@ -69,11 +70,13 @@ namespace tp_winform_equipo_1b
 
                 Close();
             }
-            catch(Exception)
+            catch (Exception ex)
             {
-                MessageBox.Show("Algunos de los datos ingresados no es correcto");
+
+                MessageBox.Show(ex.Message);
             }
         }
+        
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -104,7 +107,7 @@ namespace tp_winform_equipo_1b
                     cbCategoria.SelectedValue = articulo.categoria.idCategoria;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.ToString());
             }
