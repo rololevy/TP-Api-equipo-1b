@@ -57,8 +57,6 @@ namespace tp_winform_equipo_1b
                     articulo.categoria = (categorias)cbCategoria.SelectedItem;
                     articulo.imagenUrl = txbUrlImagen.Text;
 
-                Close();
-
                 if (articulo.idArticulo != 0) //Estoy modificando
                 {
                     gestor.modificar(articulo);
