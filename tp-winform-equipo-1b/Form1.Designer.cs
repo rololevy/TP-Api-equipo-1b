@@ -42,6 +42,7 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnAgregar = new System.Windows.Forms.Button();
             this.btnModArt = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvArticulos)).BeginInit();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -169,11 +170,22 @@
             this.btnModArt.UseVisualStyleBackColor = true;
             this.btnModArt.Click += new System.EventHandler(this.btnModArt_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(357, 389);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(101, 23);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Gestión Imágenes";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.btnGestionarImagenes_Click);
+            // 
             // FrmGestionArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(890, 424);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnModArt);
             this.Controls.Add(this.btnAgregar);
             this.Controls.Add(this.btnEliminar);
@@ -207,6 +219,7 @@
         private System.Windows.Forms.ToolStripMenuItem tspEliminarArt;
         private System.Windows.Forms.ToolStripMenuItem tspModificarArt;
         private System.Windows.Forms.ToolStripMenuItem tspAgregarImagen;
+        private System.Windows.Forms.Button button1;
     }
 }
 

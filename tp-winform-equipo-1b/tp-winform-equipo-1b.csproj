@@ -64,6 +64,12 @@
     <Compile Include="frmDetalleArticulo.Designer.cs">
       <DependentUpon>frmDetalleArticulo.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmGestionarImagenes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmGestionarImagenes.Designer.cs">
+      <DependentUpon>FrmGestionarImagenes.cs</DependentUpon>
+    </Compile>
     <Compile Include="imagenManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -222,6 +222,21 @@ namespace tp_winform_equipo_1b
             vModificar.ShowDialog();
             cargarArticulos();
         }
+
+        private void btnGestionarImagenes_Click(object sender, EventArgs e)
+        {
+            if (dgvArticulos?.CurrentRow == null)
+            {
+                MessageBox.Show("Seleccioná un artículo primero.");
+                return;
+            }
+
+            var art = (articulos)dgvArticulos.CurrentRow.DataBoundItem;
+            using (var f = new FrmGestionarImagenes(art.idArticulo, art.nombre))
+                f.ShowDialog(this);
+        }
+
+
     }
 }
     
