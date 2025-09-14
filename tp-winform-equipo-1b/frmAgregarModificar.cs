@@ -41,11 +41,10 @@ namespace tp_winform_equipo_1b
 
         private void btnAceptar_Click(object sender, EventArgs e)
         {
-            //articulos art = new articulos();
+            
             gestionArticulos gestor = new gestionArticulos();
             try
             {
-<<<<<<< HEAD
                 if (articulo == null) //Si es null estoy agregando/creando
                 {
                     articulo = new articulos(); //genero la instancia
@@ -57,27 +56,17 @@ namespace tp_winform_equipo_1b
                     articulo.marca = (marcas)cbMarca.SelectedItem;
                     articulo.categoria = (categorias)cbCategoria.SelectedItem;
                     articulo.imagenUrl = txbUrlImagen.Text;
-=======
-                art.codigo = txbCodigo.Text;
-                art.nombre = txbNombre.Text;
-                art.descripcion = txbDesc.Text;
-                art.precio = decimal.Parse(txbPrecio.Text);
-                art.marca = (marcas)cbMarca.SelectedItem;
-                art.categoria = (categorias)cbCategoria.SelectedItem; 
-                art.imagenUrl = txbUrlImagen.Text;
-                gestor.agregarArticulo(art);
-                MessageBox.Show("Se ha cargado el artículo correctamente");
+
                 Close();
->>>>>>> 3842e94dbda8ef1a0d7f9b1996b68be357144a21
 
                 if (articulo.idArticulo != 0) //Estoy modificando
                 {
                     gestor.modificar(articulo);
                     MessageBox.Show("Se ha modificado el articulo correctamente");
-                }else //Estoy agregando
+                }else //Estoy agregando/creando
                 {
                     gestor.agregarArticulo(articulo);
-                    MessageBox.Show("se ha cargado el articulo correctamente");
+                    MessageBox.Show("Se ha cargado el artículo correctamente");
                 }
 
                 Close();

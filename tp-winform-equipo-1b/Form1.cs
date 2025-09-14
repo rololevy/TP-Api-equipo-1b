@@ -132,6 +132,10 @@ namespace tp_winform_equipo_1b
 
             dgvArticulos.DataSource = null;//limpiamos el dgv
             dgvArticulos.DataSource = listaArticulos;
+
+            // Ocultar la columna imagen si existe
+            if (dgvArticulos.Columns["imagenUrl"] != null)
+                dgvArticulos.Columns["imagenUrl"].Visible = false;
         }
         private void btnAgregar_Click(object sender, EventArgs e)
         {
