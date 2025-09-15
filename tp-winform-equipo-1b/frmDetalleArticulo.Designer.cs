@@ -46,7 +46,7 @@
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.lblContador = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblID = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbArtDetalle)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,7 +117,7 @@
             // 
             // txtIdArt
             // 
-            this.txtIdArt.Location = new System.Drawing.Point(79, 5);
+            this.txtIdArt.Location = new System.Drawing.Point(79, 9);
             this.txtIdArt.Name = "txtIdArt";
             this.txtIdArt.ReadOnly = true;
             this.txtIdArt.Size = new System.Drawing.Size(100, 20);
@@ -216,19 +216,21 @@
             this.lblContador.Size = new System.Drawing.Size(100, 23);
             this.lblContador.TabIndex = 1;
             // 
-            // label1
+            // lblID
             // 
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(100, 23);
-            this.label1.TabIndex = 0;
+            this.lblID.Location = new System.Drawing.Point(21, 13);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(61, 23);
+            this.lblID.TabIndex = 0;
+            this.lblID.Text = "ID Articulo:";
+            this.lblID.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // frmDetalleArticulo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(442, 202);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblID);
             this.Controls.Add(this.lblContador);
             this.Controls.Add(this.btnSiguiente);
             this.Controls.Add(this.btnAnterior);
@@ -278,6 +280,6 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Label lblContador;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblID;
     }
 }

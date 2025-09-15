@@ -90,6 +90,9 @@ namespace tp_winform_equipo_1b
 
         }
 
-        
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }
