@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "dataManager", "dataManager\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "servicios", "servicios\servicios.csproj", "{EB04F2E7-CC11-44EC-91DC-A11D0165149A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiWinForms", "ApiWinForms\ApiWinForms.csproj", "{09ACE0A3-3A95-4838-9521-73E819B295D1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EB04F2E7-CC11-44EC-91DC-A11D0165149A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09ACE0A3-3A95-4838-9521-73E819B295D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09ACE0A3-3A95-4838-9521-73E819B295D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09ACE0A3-3A95-4838-9521-73E819B295D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09ACE0A3-3A95-4838-9521-73E819B295D1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
