@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
+using System.Web.UI;
 using ApiWinForms.DTOs;
 using ApiWinForms.Models;
 using dominio;
@@ -108,6 +109,85 @@ namespace ApiWinForms.Controllers
             {
                 return InternalServerError(new Exception($"Error: {ex.Message}"));
             }
+        }
+        public IHttpActionResult Put(int id,[FromBody] ArticuloDTO dto) {
+            try
+            {
+                //validamos si el articulo recibido para modifcar no es null
+                if (dto== null)
+                    return BadRequest("se requieren datos para realizar una modificacion");
+                //validamos el modelo de dto
+                if (!ModelState.IsValid)
+                {
+                    var errores = ModelState.Values
+                        .SelectMany(v => v.Errors)
+                        .Select(e => e.ErrorMessage)
+                        .ToList();
+                    return BadRequest(string.Join(", ", errores));
+                }
+
+                //validamos que exista el articulo a modificar
+                var gestorArticulos = new gestionArticulos();
+                var articuloExistente = gestorArticulos.listar().FirstOrDefault(a => a.idArticulo == id);
+                if (articuloExistente == null)
+                {
+                    return NotFound();
+                }
+
+                //validamos que la marca exista
+                var gestorMarcas = new gestionMarcas();
+                var marcas = gestorMarcas.listar();
+                if (!marcas.Any(m => m.idMarca == dto.IdMarca))
+                    return BadRequest("La marca no existe");
+
+                //validamos que la categoria exista
+                var gestorCategorias = new gestionCategoria();
+                var categorias = new gestionCategoria().listar();
+                if (!categorias.Any(c => c.idCategoria == dto.IdCategoria))
+                    return BadRequest("la categoria no existe");
+                //copiamos los datos recibidos
+                var articulo = new articulos
+                {
+                    idArticulo = id,
+                    codigo = dto.Codigo,
+                    nombre = dto.Nombre,
+                    descripcion = dto.Descripcion,
+                    precio = dto.Precio,
+                    marca = new marcas { idMarca = dto.IdMarca },
+                    categoria = new categorias { idCategoria = dto.IdCategoria },
+                    imagenUrl = dto.ImagenUrl
+                };
+                gestorArticulos.modificar(articulo);
+                return Ok(new { mensaje = "arituclo modificado correctamente", id = id });
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(new Exception("error al modificar el articulo : "+ex.Message));
+            }
+            
+           
+        }
+        public IHttpActionResult Delete(int id)
+        {
+            try
+            {
+                //verificamos que exista el articulo a eliminar
+                var gestor = new gestionArticulos();
+                var articulo = gestor.listar().FirstOrDefault(a => a.idArticulo == id);
+                if (articulo == null)
+                    return (NotFound());//devuelve error si no existe
+                //si existe lo eliminamos
+                gestor.eliminar(id);
+
+                //devolvemos confirmacion
+                return Ok(new { mensaje = "articulo eliminado correctamente", id = id });
+
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(new Exception("error al eliminar el articulo :" + ex.Message));
+            }
+            
         }
     }
 }
