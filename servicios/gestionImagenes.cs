@@ -44,7 +44,30 @@ namespace servicios
             datos.setearParametro("@url", url);
             datos.ejecutarAccion();
         }
+        public void agregar(int idArticulo, List<string> urls)
+        {
+            var datos = new accesoDatos();
+            try
+            {
+                foreach(var url in urls)
+                {
+                    datos.setearConsulta("INSERT INTO IMAGENES (IdArticulo, ImagenUrl) VALUES (@id,@url)");
+                    datos.setearParametro("@id", idArticulo);
+                    datos.setearParametro("@url", url);
+                    datos.ejecutarAccion();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("error al agregar imagenes :" + ex.Message);
 
+            }
+            finally
+            {
+                datos.cerrarConexion();
+            }
+            
+        }
         public void eliminar(int idImagen)
         {
             var datos = new accesoDatos();

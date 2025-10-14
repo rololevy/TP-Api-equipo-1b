@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web.Http;
 using System.Web.UI;
+using ApiWinForms.Areas.HelpPage;
 using ApiWinForms.DTOs;
 using ApiWinForms.Models;
 using dominio;
@@ -37,7 +38,7 @@ namespace ApiWinForms.Controllers
                 {
                     // obtiene todas las imágenes del artículo
                     var imagenes = gestorImagenes.listarPorArticulo(art.idArticulo);
-                    
+
                     var articulo = new Articulo
                     {
                         Id = art.idArticulo,
@@ -110,11 +111,13 @@ namespace ApiWinForms.Controllers
                 return InternalServerError(new Exception($"Error: {ex.Message}"));
             }
         }
-        public IHttpActionResult Put(int id,[FromBody] ArticuloDTO dto) {
+       
+        public IHttpActionResult Put(int id, [FromBody] ArticuloDTO dto)
+        {
             try
             {
                 //validamos si el articulo recibido para modifcar no es null
-                if (dto== null)
+                if (dto == null)
                     return BadRequest("se requieren datos para realizar una modificacion");
                 //validamos el modelo de dto
                 if (!ModelState.IsValid)
@@ -160,12 +163,12 @@ namespace ApiWinForms.Controllers
                 gestorArticulos.modificar(articulo);
                 return Ok(new { mensaje = "arituclo modificado correctamente", id = id });
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
-                return InternalServerError(new Exception("error al modificar el articulo : "+ex.Message));
+                return InternalServerError(new Exception("error al modificar el articulo : " + ex.Message));
             }
-            
-           
+
+
         }
         public IHttpActionResult Delete(int id)
         {
@@ -183,11 +186,35 @@ namespace ApiWinForms.Controllers
                 return Ok(new { mensaje = "articulo eliminado correctamente", id = id });
 
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 return InternalServerError(new Exception("error al eliminar el articulo :" + ex.Message));
             }
-            
+
+        }
+        [HttpPost]
+        [Route("api/Articulo/{id}/imagenes")]
+        public IHttpActionResult Post(int id, List<string> imagenes)
+        {
+            try
+            {
+                if (imagenes == null || !imagenes.Any())
+                {
+                    return BadRequest("debe enviar al menos una imagen");
+                }
+                var gestorArticulos = new gestionArticulos();
+                var articulo = gestorArticulos.listar().FirstOrDefault(a => a.idArticulo == id);
+                if (articulo == null)
+                    return NotFound();
+                var gestorImagenes = new gestionImagenes();
+                gestorImagenes.agregar(id, imagenes);
+                return Ok(new { mensaje = "imagenes agregadas correctamente ", id = id , cantidad=imagenes.Count() });
+            }
+            catch(Exception ex)
+            {
+                return InternalServerError(new Exception("error al agregar imagenes :" + ex.Message));
+            }
         }
     }
+
 }
