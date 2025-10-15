@@ -215,6 +215,55 @@ namespace ApiWinForms.Controllers
                 return InternalServerError(new Exception("error al agregar imagenes :" + ex.Message));
             }
         }
-    }
 
+        // GET: api/Articulo/buscar
+        [HttpGet]
+        [Route("api/Articulo/buscar")]
+        public IHttpActionResult Buscar(string termino = "", int? marca = null, int? categoria = null, decimal? precioMin = null, decimal? precioMax = null)
+        {
+            try
+            {
+                var articulos = gestorArticulos.listar();
+                var lista = new List<Articulo>();
+
+                // filtros
+                var articulosFiltrados = articulos.Where(art =>
+                    (string.IsNullOrEmpty(termino) || 
+                     art.nombre.ToLower().Contains(termino.ToLower()) ||
+                     art.codigo.ToLower().Contains(termino.ToLower()) ||
+                     art.descripcion.ToLower().Contains(termino.ToLower())) &&
+                    (!marca.HasValue || art.marca.idMarca == marca.Value) &&
+                    (!categoria.HasValue || art.categoria.idCategoria == categoria.Value) &&
+                    (!precioMin.HasValue || art.precio >= precioMin.Value) &&
+                    (!precioMax.HasValue || art.precio <= precioMax.Value)
+                ).ToList();
+
+                foreach (var art in articulosFiltrados)
+                {
+                    var imagenes = gestorImagenes.listarPorArticulo(art.idArticulo);
+
+                    var articulo = new Articulo
+                    {
+                        Id = art.idArticulo,
+                        Codigo = art.codigo,
+                        Nombre = art.nombre,
+                        Descripcion = art.descripcion,
+                        Precio = art.precio,
+                        IdMarca = art.marca.idMarca,
+                        DescripcionMarca = art.marca.descripcion,
+                        IdCategoria = art.categoria.idCategoria,
+                        DescripcionCategoria = art.categoria.descripcion,
+                        Imagenes = imagenes.Select(img => img.Url).ToList()
+                    };
+                    lista.Add(articulo);
+                }
+
+                return Ok(lista);
+            }
+            catch (Exception ex)
+            {
+                return InternalServerError(new Exception("error en busqueda: " + ex.Message));
+            }
+        }
+    }
 }
